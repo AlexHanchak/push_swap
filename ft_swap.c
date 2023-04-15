@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 12:03:23 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:00:28 by ohanchak         ###   ########.fr       */
+/*   Created: 2023/04/15 16:03:31 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:22:19 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_node
+static void	swap(t_node **node)
 {
-	int	index;
-	int	position_curent;
-	int	position_target;
-	int	data;
-	int	arr_a;
-	int	arr_b;
-	struct s_node	*next;
-}t_node;
+	
+}
 
+void	sa(t_node **node)
+{
+	
+}
 
-void	sa(t_node **node);
-#endif
+void	sb(t_node **node)
+{
+	
+}
+
+void	ss(t_node **node)
+{
+	
+}
+

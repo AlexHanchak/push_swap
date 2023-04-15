@@ -6,7 +6,17 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/01/17 16:55:43 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+
+int	main(int argc, char **argv)
+{
+	if (argc == 1)
+		return (1);
+	push_swap();
+	return (0);
+}
