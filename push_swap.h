@@ -10,3 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+typedef struct node {
+	int index;
+	int data;
+	struct node *next;
+}Node;

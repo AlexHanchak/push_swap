@@ -10,3 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = pushswap
+
+RM = /bin/rm -f
+
+SRCS = push_swap.c /
+		push_swap.h
+
+OBJS = $(SRCS:%.c=$/%.o)
+
+all:
+	$(SRCS)
+
+clean:
+	$(RM) -r $(OBJS)
