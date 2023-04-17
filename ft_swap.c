@@ -12,14 +12,24 @@
 
 #include "push_swap.h"
 
-static void	swap(t_node **node)
+static void	swap(t_node *node)
 {
-	
+	int tmp;
+
+    if(node == NULL || node->next->index == NULL)
+        return;
+    tmp = node->value;
+    node->value = node->next->value;
+    node->next->value = tmp;
+    tmp = node->value;
+    node->index = node->next->index;
+    node->next->index = tmp;
 }
 
-void	sa(t_node **node)
+void	sa(t_node **node_a)
 {
-	
+    swap(*node_a);
+    ft_putstr("sa\n");
 }
 
 void	sb(t_node **node)

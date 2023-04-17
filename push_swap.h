@@ -15,12 +15,13 @@
 
 typedef struct s_node
 {
-	int	index;
-	int	position_curent;
-	int	position_target;
-	int	data;
-	int	arr_a;
-	int	arr_b;
+	int	            index;
+	int	            position_curent;
+	int	            position_target;
+	int	            data;
+	int	            arr_a;
+	int	            arr_b;
+    int             value;
 	struct s_node	*next;
 }t_node;
 
