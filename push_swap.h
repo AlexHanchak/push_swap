@@ -24,6 +24,19 @@ typedef struct s_node
 	struct s_node	*next;
 }t_node;
 
-
+static void	swap(t_node **node);
 void	sa(t_node **node);
+void	sb(t_node **node);
+
+void	pa(t_node **node);
+void	pb(t_node **node);
+
+void	ra(t_node **node);
+void	rb(t_node **node);
+void	rr(t_node **node);
+
+void	rra(t_node **node);
+void	rrb(t_node **node);
+void	rrr(t_node **node);
+
 #endif

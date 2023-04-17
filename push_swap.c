@@ -17,6 +17,6 @@ int	main(int argc, char **argv)
 {
 	if (argc == 1)
 		return (1);
-	push_swap();
+
 	return (0);
 }
