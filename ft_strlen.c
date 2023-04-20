@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 16:13:34 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:13:58 by ohanchak         ###   ########.fr       */
+/*   Created: 2022/10/13 15:40:38 by ohanchak          #+#    #+#             */
+/*   Updated: 2022/11/01 15:22:48 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-void	pa(t_node *node)
+size_t	ft_strlen(const char *str)
 {
-	int tmp;
+	int	i;
 
-	if(node == NULL || node->next->index == NULL)
-		return;
-	tmp =
-
-}
-
-void	pb(t_node *node)
-{
-	
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

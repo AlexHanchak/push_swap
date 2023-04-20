@@ -15,7 +15,8 @@ NAME = pushswap
 RM = /bin/rm -f
 
 SRCS = push_swap.c /
-		push_swap.h
+		push_swap.h /
+		ft_push.c
 
 OBJS = $(SRCS:%.c=$/%.o)
 

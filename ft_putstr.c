@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 16:13:34 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:13:58 by ohanchak         ###   ########.fr       */
+/*   Created: 2022/10/24 18:11:04 by ohanchak          #+#    #+#             */
+/*   Updated: 2022/10/24 18:23:08 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node *node)
+void	ft_putstr(char const *s)
 {
-	int tmp;
+	int		i;
+	int len;
 
-	if(node == NULL || node->next->index == NULL)
-		return;
-	tmp =
+	len = ft_strlen(s);
+	i = 0;
+	if (s == NULL)
+		return ;
 
-}
-
-void	pb(t_node *node)
-{
-	
+	while (s[i] != '\0')
+	{
+		write(len, &s[i], 1);
+		i++;
+	}
 }

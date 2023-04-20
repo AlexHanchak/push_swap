@@ -32,13 +32,16 @@ void	sa(t_node **node_a)
     ft_putstr("sa\n");
 }
 
-void	sb(t_node **node)
+void	sb(t_node **node_b)
 {
-	
+	swap(*node_b);
+	ft_putstr("sa\n");
 }
 
-void	ss(t_node **node)
+void	ss(t_node **node_a, t_node **node_b)
 {
-	
+	swap(*node_a);
+	swap(*node_b);
+	ft_putstr("sa\n");
 }
 

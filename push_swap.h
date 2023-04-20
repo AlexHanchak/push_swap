@@ -13,6 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <string.h>
+#include <unistd.h>
+
 typedef struct s_node
 {
 	int	            index;
@@ -25,19 +28,23 @@ typedef struct s_node
 	struct s_node	*next;
 }t_node;
 
-static void	swap(t_node **node);
 void	sa(t_node **node);
 void	sb(t_node **node);
 
-void	pa(t_node **node);
-void	pb(t_node **node);
+void	pa(t_node *node);
+void	pb(t_node *node);
 
-void	ra(t_node **node);
-void	rb(t_node **node);
-void	rr(t_node **node);
+void	ra(t_node *node);
+void	rb(t_node *node);
+void	rr(t_node *node);
 
 void	rra(t_node **node);
 void	rrb(t_node **node);
 void	rrr(t_node **node);
+
+// libft func
+
+size_t  ft_strlen(const char *str);
+void	ft_putstr(char const *s);
 
 #endif

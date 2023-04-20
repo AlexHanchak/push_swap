@@ -11,4 +11,4 @@ add_executable(push_swap
         ft_rotate.c
         ft_swap.c
         push_swap.c
-        push_swap.h)
+        push_swap.h ft_putstr.c ft_strlen.c)
