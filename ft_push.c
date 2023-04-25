@@ -12,17 +12,26 @@
 
 #include "push_swap.h"
 
-void	pa(t_node *node)
+static void push(t_node **node_a, t_node **node_b)
 {
-	int tmp;
-
-	if(node == NULL || node->next->index == NULL)
+	t_node *tmp;
+	if(node_a == NULL)
 		return;
-	tmp =
+	tmp = (*node_a)->next;
+	(*node_a)->next = *node_b;
+	*node_b = *node_a;
+	*node_a = tmp;
+}
+
+void	pa(t_node **node_a, t_node **node_b)
+{
+	push(node_b, node_a);
+	ft_putstr("pa\n");
 
 }
 
-void	pb(t_node *node)
+void	pb(t_node **node_a, t_node **node_b)
 {
-	
+	push(node_a, node_b);
+	ft_putstr("pb\n");
 }

@@ -28,15 +28,17 @@ typedef struct s_node
 	struct s_node	*next;
 }t_node;
 
-void	sa(t_node **node);
-void	sb(t_node **node);
+void	ss(t_node **node_a, t_node **node_b);
+void	sa(t_node **node_a);
+void	sb(t_node **node_b);
 
-void	pa(t_node *node);
-void	pb(t_node *node);
+void	pa(t_node **node_a, t_node **node_b);
+void	pb(t_node **node_a, t_node **node_b);
 
-void	ra(t_node *node);
-void	rb(t_node *node);
-void	rr(t_node *node);
+void	rotate(t_node **node);
+void	ra(t_node **node_a);
+void	rb(t_node **node_b);
+void	rr(t_node **node_a, t_node **node_b);
 
 void	rra(t_node **node);
 void	rrb(t_node **node);
