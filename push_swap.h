@@ -6,25 +6,25 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:23 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:00:28 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:55:25 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <string.h>
-#include <unistd.h>
+# include <string.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
-	int	            index;
-	int	            position_curent;
-	int	            position_target;
-	int	            data;
-	int	            arr_a;
-	int	            arr_b;
-    int             value;
+	int				index;
+	int				position_curent;
+	int				position_target;
+	int				data;
+	int				arr_a;
+	int				arr_b;
+	int				value;
 	struct s_node	*next;
 }t_node;
 
@@ -44,7 +44,7 @@ void	rrr(t_node **node);
 
 // libft func
 
-size_t  ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 void	ft_putstr(char const *s);
 
 #endif
