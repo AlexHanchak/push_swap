@@ -3,30 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:23 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:00:28 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:44:07 by lex              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <string.h>
-#include <unistd.h>
+# include <string.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
-	int	            index;
-	int	            position_curent;
-	int	            position_target;
-	int	            data;
-	int	            arr_a;
-	int	            arr_b;
-    int             value;
+	int				index;
+	int				position_curent;
+	int				position_target;
+	int				data;
+	int				arr_a;
+	int				arr_b;
+	int				value;
 	struct s_node	*next;
 }t_node;
+
+t_node	*get_stack_bottom(t_node *node);
+t_node	*get_stack_before_bottom(t_node *node);
+t_node	*stack_new(int value);
 
 void	ss(t_node **node_a, t_node **node_b);
 void	sa(t_node **node_a);
@@ -40,13 +44,13 @@ void	ra(t_node **node_a);
 void	rb(t_node **node_b);
 void	rr(t_node **node_a, t_node **node_b);
 
-void	rra(t_node **node);
-void	rrb(t_node **node);
-void	rrr(t_node **node);
+void	rra(t_node **node_a);
+void	rrb(t_node **node_b);
+void	rrr(t_node **node_a, t_node **node_b);
 
 // libft func
 
-size_t  ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 void	ft_putstr(char const *s);
 
 #endif
