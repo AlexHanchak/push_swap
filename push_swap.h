@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:23 by ohanchak          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/04/20 16:55:25 by ohanchak         ###   ########.fr       */
+=======
+/*   Updated: 2023/04/29 17:44:07 by lex              ###   ########.fr       */
+>>>>>>> 29e4b4ad78de5d89e0dfe886f94a583fc028017b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +32,10 @@ typedef struct s_node
 	struct s_node	*next;
 }t_node;
 
+t_node	*get_stack_bottom(t_node *node);
+t_node	*get_stack_before_bottom(t_node *node);
+t_node	*stack_new(int value);
+
 void	ss(t_node **node_a, t_node **node_b);
 void	sa(t_node **node_a);
 void	sb(t_node **node_b);
@@ -40,9 +48,9 @@ void	ra(t_node **node_a);
 void	rb(t_node **node_b);
 void	rr(t_node **node_a, t_node **node_b);
 
-void	rra(t_node **node);
-void	rrb(t_node **node);
-void	rrr(t_node **node);
+void	rra(t_node **node_a);
+void	rrb(t_node **node_b);
+void	rrr(t_node **node_a, t_node **node_b);
 
 // libft func
 
