@@ -3,30 +3,72 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+         #
+#    By: lex <lex@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/16 12:03:14 by ohanchak          #+#    #+#              #
-#    Updated: 2023/04/29 17:49:29 by ohanchak         ###   ########.fr        #
+#    Created: 2023/09/25 15:44:28 by ohanchak          #+#    #+#              #
+#    Updated: 2023/10/05 16:48:30 by lex              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
 
-RM = /bin/rm -f
+CC			=	gcc
 
-SRCS = push_swap.c /
-		push_swap.h /
-		ft_push.c /
-		ft_swap.c /
-		ft_rotate.c /
-		ft_reverse_rotate.c /
-		ft_putstr.c /
-		ft_strlen.c /
-		
-OBJS = $(SRCS:%.c=$/%.o)
+CC_FLAGS	=	-Wall -Wextra -Werror
 
-all:
-	$(SRCS)
+RM			=	rm -rf
+
+DIR_HEADERS =	./includes/
+
+DIR_SRCS	=	./srcs/
+
+DIR_OBJS	=	./compiled_srcs/
+
+SRC			=	push_swap.c \
+				init_stacks.c \
+				stacks.c \
+				align_stacks.c \
+				operations.c \
+				check_req.c \
+				movements.c \
+				states.c \
+				resolution.c \
+				bruteforce.c \
+				b_operations.c \
+				utils.c \
+				cleaner.c \
+				print.c \
+				debug.c
+
+SRCS		=	$(SRC)
+
+OBJS 		=	$(SRCS:%.c=$(DIR_OBJS)%.o)
+
+NAME 		=	push_swap
+
+
+all:			$(NAME)
+
+
+$(NAME):		$(OBJS)
+				@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) $(OBJS) -o $(NAME)
+
+
+$(OBJS):		| $(DIR_OBJS)
+
+
+$(DIR_OBJS)%.o: $(DIR_SRCS)%.c
+				@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
+
+$(DIR_OBJS):
+				@mkdir $(DIR_OBJS)
+
 
 clean:
-	$(RM) -r $(OBJS)
+				@$(RM) $(DIR_OBJS)
+
+fclean:			clean
+				@$(RM) $(NAME)
+
+re:				fclean all
+
+.PHONY:			all clean fclean re norm

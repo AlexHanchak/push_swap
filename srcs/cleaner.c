@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   cleaner.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 16:13:34 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/29 17:37:55 by lex              ###   ########.fr       */
+/*   Created: 2023/10/05 16:33:24 by lex               #+#    #+#             */
+/*   Updated: 2023/10/05 16:37:11 by lex              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+ 
+
 #include "push_swap.h"
 
-static	void	push(t_node **node_a, t_node **node_b)
+void			free_instructions(t_instruction *instructions)
 {
-	t_node	*tmp;
+	t_instruction	*next;
 
-	if (node_a == NULL)
-		return ;
-	tmp = (*node_a)->next;
-	(*node_a)->next = *node_b;
-	*node_b = *node_a;
-	*node_a = tmp;
+	while (instructions)
+	{
+		next = instructions->next;
+		free(instructions->line);
+		free(instructions);
+		instructions = next;
+	}
 }
 
-void	pa(t_node **node_a, t_node **node_b)
+void			free_stack(t_stack *stack)
 {
-	push(node_b, node_a);
-	ft_putstr("pa\n");
+	free(stack->array);
+	free(stack);
 }
 
-void	pb(t_node **node_a, t_node **node_b)
+void			free_prg(t_program *prg)
 {
-	push(node_a, node_b);
-	ft_putstr("pb\n");
+	free_instructions(prg->instr);
+	free(prg->stack_a.array);
+	free(prg->stack_b.array);
 }
