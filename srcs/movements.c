@@ -6,14 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:21:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:28:08 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
+
 #include "push_swap.h"
 
-
-int				can_pb(t_stack *stack_a, t_stack *stack_b)
+int	can_pb(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a->size)
 		return (0);
@@ -21,21 +20,20 @@ int				can_pb(t_stack *stack_a, t_stack *stack_b)
 		return (1);
 	else if (stack_a->array[0] > stack_b->array[0])
 	{
-		if (stack_a->array[0] < stack_b->array[stack_b->size - 1] &&
-stack_b->array[0] < stack_b->array[stack_b->size - 1])
+		if (stack_a->array[0] < stack_b->array[stack_b->size - 1]
+			&& stack_b->array[0] < stack_b->array[stack_b->size - 1])
 			return (1);
-		else if (stack_a->array[0] > stack_b->array[stack_b->size - 1] &&
-stack_b->array[0] > stack_b->array[stack_b->size - 1])
+		else if (stack_a->array[0] > stack_b->array[stack_b->size - 1]
+			&& stack_b->array[0] > stack_b->array[stack_b->size - 1])
 			return (1);
 	}
-	else if (stack_a->array[0] < stack_b->array[stack_b->size - 1] &&
-stack_b->array[stack_b->size - 1] < stack_b->array[0])
+	else if (stack_a->array[0] < stack_b->array[stack_b->size - 1]
+		&& stack_b->array[stack_b->size - 1] < stack_b->array[0])
 		return (1);
 	return (0);
 }
 
-
-size_t			closer_pos_to_inf(int nb, t_stack *stack)
+size_t	closer_pos_to_inf(int nb, t_stack *stack)
 {
 	size_t		pos;
 
@@ -62,8 +60,7 @@ size_t			closer_pos_to_inf(int nb, t_stack *stack)
 	return (pos);
 }
 
-
-size_t			less_mvt_at_begin(size_t minimal_mvt, size_t *min_mvt,
+size_t	less_mvt_at_begin(size_t minimal_mvt, size_t *min_mvt,
 t_stack *stack_a, t_stack *stack_b)
 {
 	size_t		i;
@@ -78,8 +75,8 @@ t_stack *stack_a, t_stack *stack_b)
 	{
 		tmp[0] = closer_pos_to_inf(stack_a->array[i], stack_b);
 		tmp[1] = stack_b->size - tmp[0];
-		if ((tmp[0] > stack_b->size / 2 && i + tmp[1] < min) ||
-(tmp[0] >= i && tmp[0] < min) || (tmp[0] < i && i < min))
+		if ((tmp[0] > stack_b->size / 2 && i + tmp[1] < min)
+			|| (tmp[0] >= i && tmp[0] < min) || (tmp[0] < i && i < min))
 			*min_mvt = tmp[0];
 		if (tmp[0] > stack_b->size / 2 && i + tmp[1] < min)
 			min = i + tmp[1];
@@ -91,7 +88,7 @@ t_stack *stack_a, t_stack *stack_b)
 	return (min);
 }
 
-size_t			less_mvt_at_end(size_t minimal_mvt, size_t *min_mvt,
+size_t	less_mvt_at_end(size_t minimal_mvt, size_t *min_mvt,
 t_stack *stack_a, t_stack *stack_b)
 {
 	size_t		i;
@@ -106,18 +103,18 @@ t_stack *stack_a, t_stack *stack_b)
 	{
 		t[0] = closer_pos_to_inf(stack_a->array[i], stack_b);
 		t[1] = stack_b->size - t[0];
-		if ((t[0] > stack_b->size / 2 && t[1] >= (stack_a->size - i) &&
-t[1] < m) || (t[0] > stack_b->size / 2 && t[1] < (stack_a->size - i) &&
-(stack_a->size - i) < m) || ((stack_a->size - i) + t[0] < m))
+		if ((t[0] > stack_b->size / 2 && t[1] >= (stack_a->size - i)
+				&& t[1] < m)
+			|| (t[0] > stack_b->size / 2 && t[1] < (stack_a->size - i)
+				&& (stack_a->size - i) < m) || ((stack_a->size - i) + t[0] < m))
 			*min_mvt = t[0];
 		if (t[0] > stack_b->size / 2 && t[1] >= (stack_a->size - i) && t[1] < m)
 			m = t[1];
-		else if (t[0] > stack_b->size / 2 &&
-t[1] < (stack_a->size - i) && (stack_a->size - i) < m)
+		else if (t[0] > stack_b->size / 2
+			&& t[1] < (stack_a->size - i) && (stack_a->size - i) < m)
 			m = (stack_a->size - i);
 		else if ((stack_a->size - i) + t[0] < m)
 			m = (stack_a->size - i) + t[0];
 	}
 	return (m);
 }
-

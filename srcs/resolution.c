@@ -6,13 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:20:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:29:02 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int					create_states_resolution(t_state **states)
+int	create_states_resolution(t_state **states)
 {
 	int				i;
 	t_instruction	*tmp;
@@ -41,7 +41,7 @@ int					create_states_resolution(t_state **states)
 	return (0);
 }
 
-t_instruction		*rotate_a(t_state *stt, size_t min[2], size_t min_mvt[2])
+t_instruction	*rotate_a(t_state *stt, size_t min[2], size_t min_mvt[2])
 {
 	t_instruction		*instr;
 
@@ -56,7 +56,7 @@ t_instruction		*rotate_a(t_state *stt, size_t min[2], size_t min_mvt[2])
 	return (instr);
 }
 
-t_instruction		*rotate(t_state *stt)
+t_instruction	*rotate(t_state *stt)
 {
 	t_instruction		*instr;
 	size_t				mvt[2];
@@ -79,7 +79,7 @@ t_instruction		*rotate(t_state *stt)
 	return (instr);
 }
 
-int					large_resolve(t_state *states)
+int	large_resolve(t_state *states)
 {
 	t_instruction	*tmp;
 	t_state			*tmp_state;
@@ -99,7 +99,7 @@ int					large_resolve(t_state *states)
 				return (1);
 			}
 			execute_instructions(tmp, tmp_state->stack_a,
-tmp_state->stack_b, 0);
+				tmp_state->stack_b, 0);
 		}
 		tmp_state = tmp_state->next;
 	}

@@ -6,20 +6,19 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:27:46 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:37:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
 
 #include "push_swap.h"
 
-void			print_instruction(t_instruction *instr)
+void	print_instruction(t_instruction *instr)
 {
 	write(STDOUT_FILENO, instr->line, ft_strlen(instr->line));
 	write(STDOUT_FILENO, "\n", 1);
 }
 
-void			print_instructions(t_instruction *instr)
+void	print_instructions(t_instruction *instr)
 {
 	while (instr)
 	{
@@ -28,7 +27,7 @@ void			print_instructions(t_instruction *instr)
 	}
 }
 
-void			print_bottom_stack(int max_size_nbr[2])
+void	print_bottom_stack(int max_size_nbr[2])
 {
 	write(STDOUT_FILENO, "	", 1);
 	write_n_char(max_size_nbr[0], '_');
@@ -43,7 +42,7 @@ void			print_bottom_stack(int max_size_nbr[2])
 	write(STDOUT_FILENO, "\n", 1);
 }
 
-void			print_numbers_stacks(int max_size, int max_size_nbr[2],
+void	print_numbers_stacks(int max_size, int max_size_nbr[2],
 t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
@@ -53,16 +52,16 @@ t_stack *stack_a, t_stack *stack_b)
 	{
 		write(STDOUT_FILENO, "	", 1);
 		if ((int)(stack_a->size - max_size + i) >= 0)
-			write_n_char(max_size_nbr[0] -
-size_nbr(stack_a->array[stack_a->size - max_size + i]), ' ');
+			write_n_char(max_size_nbr[0]
+				- size_nbr(stack_a->array[stack_a->size - max_size + i]), ' ');
 		if ((int)(stack_a->size - max_size + i) >= 0)
 			ft_putnbr(stack_a->array[stack_a->size - max_size + i]);
 		else
 			write_n_char(max_size_nbr[0], ' ');
 		write(STDOUT_FILENO, " ", 1);
 		if ((int)(stack_b->size - max_size + i) >= 0)
-			write_n_char(max_size_nbr[1] -
-size_nbr(stack_b->array[stack_b->size - max_size + i]), ' ');
+			write_n_char(max_size_nbr[1]
+				- size_nbr(stack_b->array[stack_b->size - max_size + i]), ' ');
 		if ((int)(stack_b->size - max_size + i) >= 0)
 			ft_putnbr(stack_b->array[stack_b->size - max_size + i]);
 		else
@@ -71,11 +70,7 @@ size_nbr(stack_b->array[stack_b->size - max_size + i]), ' ');
 	}
 }
 
-/*
-** Print both stacks
-*/
-
-void			print_stacks(t_stack *stack_a, t_stack *stack_b)
+void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	int		max_size_nbr[2];
 	int		max_size;

@@ -6,20 +6,19 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:26:11 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:05:19 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
 
 #include "push_swap.h"
 
-void			write_n_char(int n, char c)
+void	write_n_char(int n, char c)
 {
 	while (n-- > 0)
 		write(STDOUT_FILENO, &c, 1);
 }
 
-int				size_nbr(int n)
+int	size_nbr(int n)
 {
 	long	nnbr;
 	int		size;
@@ -43,7 +42,7 @@ int				size_nbr(int n)
 	return (size);
 }
 
-int				get_max_size_nbr_stack(t_stack *stack)
+int	get_max_size_nbr_stack(t_stack *stack)
 {
 	int		size;
 	size_t	i;

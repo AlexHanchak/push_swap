@@ -6,15 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:28:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:26:13 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
 
 #include "push_swap.h"
 
-
-char				*ft_strdup_char(const char *str, char stop)
+char	*ft_strdup_char(const char *str, char stop)
 {
 	int		i;
 	char	*pt;
@@ -22,7 +20,8 @@ char				*ft_strdup_char(const char *str, char stop)
 	i = 0;
 	while (str[i] && str[i] != stop)
 		i++;
-	if (!(pt = malloc((i + 1) * sizeof(char))))
+	pt = malloc((i + 1) * sizeof(char));
+	if (!pt)
 		return (0);
 	i = -1;
 	while (str[++i] && str[i] != stop)
@@ -31,8 +30,7 @@ char				*ft_strdup_char(const char *str, char stop)
 	return (pt);
 }
 
-
-int					fill_stack_arg(char *arg, t_stack *stack, size_t *stack_nb)
+int	fill_stack_arg(char *arg, t_stack *stack, size_t *stack_nb)
 {
 	int		num;
 	char	*str;
@@ -60,8 +58,7 @@ int					fill_stack_arg(char *arg, t_stack *stack, size_t *stack_nb)
 	return (0);
 }
 
-
-int					fill_stack(int argc, char *argv[], t_stack *stack)
+int	fill_stack(int argc, char *argv[], t_stack *stack)
 {
 	size_t	i;
 	size_t	j;
@@ -79,8 +76,7 @@ int					fill_stack(int argc, char *argv[], t_stack *stack)
 	return (0);
 }
 
-
-size_t				count_stack_size(int argc, char *argv[])
+size_t	count_stack_size(int argc, char *argv[])
 {
 	size_t	i;
 	size_t	j;
@@ -102,16 +98,17 @@ size_t				count_stack_size(int argc, char *argv[])
 	return (size);
 }
 
-
-int					init_stacks(int argc, char *argv[],
+int	init_stacks(int argc, char *argv[],
 t_stack *stack_a, t_stack *stack_b)
 {
 	size_t		stack_size;
 
 	stack_size = count_stack_size(argc, argv);
-	if (!(stack_a->array = malloc(sizeof(int) * stack_size)))
+	stack_a->array = malloc(sizeof(int) * stack_size);
+	if (!stack_a->array)
 		return (write(STDERR_FILENO, "Error\n", 6));
-	if (!(stack_b->array = malloc(sizeof(int) * stack_size)))
+	stack_b->array = malloc(sizeof(int) * stack_size);
+	if (!stack_b->array)
 	{
 		free(stack_a->array);
 		write(STDERR_FILENO, "Error\n", 6);

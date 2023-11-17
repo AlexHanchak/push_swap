@@ -6,15 +6,15 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:20:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:25:29 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
@@ -53,10 +53,10 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void			ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	char c;
-	long nnbr;
+	char	c;
+	long	nnbr;
 
 	nnbr = n;
 	if (nnbr < 0)
@@ -75,8 +75,7 @@ void			ft_putnbr(int n)
 		write(STDOUT_FILENO, "0", 1);
 }
 
-
-int				ft_atoi(const char *str, int *num)
+int	ft_atoi(const char *str, int *num)
 {
 	char	*ptr;
 	long	nbr;

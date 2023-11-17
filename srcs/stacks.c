@@ -6,14 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:12:04 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:34:19 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int				is_stack_ordered(t_stack *stack, int order)
+int	is_stack_ordered(t_stack *stack, int order)
 {
 	size_t	i;
 
@@ -28,7 +27,7 @@ int				is_stack_ordered(t_stack *stack, int order)
 	return (0);
 }
 
-int				stack_contains(t_stack *stack, int num)
+int	stack_contains(t_stack *stack, int num)
 {
 	size_t	i;
 
@@ -41,14 +40,16 @@ int				stack_contains(t_stack *stack, int num)
 	return (0);
 }
 
-t_stack			*copy_stack(t_stack *stack)
+t_stack	*copy_stack(t_stack *stack)
 {
 	size_t		i;
 	t_stack		*new;
 
-	if (!(new = malloc(sizeof(t_stack))))
+	new = malloc(sizeof(t_stack));
+	if (!new)
 		return (NULL);
-	if (!(new->array = malloc(sizeof(int) * stack->max_size)))
+	new->array = malloc(sizeof(int) * stack->max_size);
+	if (!new->array)
 		return (NULL);
 	i = 0;
 	while (i < stack->size)
@@ -61,13 +62,15 @@ t_stack			*copy_stack(t_stack *stack)
 	return (new);
 }
 
-t_stack			*new_empty_stack(size_t max_size)
+t_stack	*new_empty_stack(size_t max_size)
 {
 	t_stack		*stack;
 
-	if (!(stack = malloc(sizeof(t_stack))))
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
 		return (NULL);
-	if (!(stack->array = malloc(sizeof(int) * max_size)))
+	stack->array = malloc(sizeof(int) * max_size);
+	if (!stack->array)
 	{
 		free(stack);
 		return (NULL);

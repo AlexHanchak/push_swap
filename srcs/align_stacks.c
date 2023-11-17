@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   align_stack.c                                      :+:      :+:    :+:   */
+/*   align_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:21:34 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:06:08 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void			calcul_align_a(size_t *pos, size_t *mvt, t_stack *stack_a,
+void	calcul_align_a(size_t *pos, size_t *mvt, t_stack *stack_a,
 t_stack *stack_b)
 {
 	*pos = 0;
 	*mvt = 0;
 	if (is_stack_ordered(stack_a, ASC))
 	{
-		while (*pos < stack_a->size - 1 &&
-stack_a->array[*pos] < stack_a->array[*pos + 1])
+		while (*pos < stack_a->size - 1
+			&& stack_a->array[*pos] < stack_a->array[*pos + 1])
 			(*pos)++;
 		if (*pos > stack_b->size / 2)
 			*mvt = stack_a->size - (*pos + 1);
@@ -30,14 +29,14 @@ stack_a->array[*pos] < stack_a->array[*pos + 1])
 	}
 }
 
-void			calcul_align_b(size_t *pos, size_t *mvt, t_stack *stack_b)
+void	calcul_align_b(size_t *pos, size_t *mvt, t_stack *stack_b)
 {
 	*pos = 0;
 	*mvt = 0;
 	if (is_stack_ordered(stack_b, DESC))
 	{
-		while (*pos < stack_b->size - 1 &&
-stack_b->array[*pos] > stack_b->array[*pos + 1])
+		while (*pos < stack_b->size - 1
+			&& stack_b->array[*pos] > stack_b->array[*pos + 1])
 			(*pos)++;
 		if (*pos > stack_b->size / 2)
 			*mvt = stack_b->size - (*pos + 1);
@@ -46,8 +45,7 @@ stack_b->array[*pos] > stack_b->array[*pos + 1])
 	}
 }
 
-
-int				align_stack_a(t_program *prg)
+int	align_stack_a(t_program *prg)
 {
 	size_t			i;
 	size_t			num;
@@ -67,8 +65,7 @@ int				align_stack_a(t_program *prg)
 	return (0);
 }
 
-
-int				align_stack_b(t_program *prg)
+int	align_stack_b(t_program *prg)
 {
 	size_t			i;
 	size_t			num;
@@ -87,4 +84,3 @@ int				align_stack_b(t_program *prg)
 	}
 	return (0);
 }
- 

@@ -6,15 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:20:21 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/05/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:18:22 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
 
 #include "push_swap.h"
 
-
-void			execute_instructions(t_instruction *instr, t_stack *stack_a,
+void	execute_instructions(t_instruction *instr, t_stack *stack_a,
 t_stack *stack_b, int debug)
 {
 	while (instr)
@@ -54,7 +52,8 @@ t_instruction *new)
 	{
 		while (tmp_instr->next)
 			tmp_instr = tmp_instr->next;
-		if (!(tmp_instr->next = copy_instructions(new)))
+		tmp_instr->next = copy_instructions(new);
+		if (!tmp_instr->next)
 			return (NULL);
 		ptr = tmp_instr->next;
 		((t_instruction *)tmp_instr->next)->prev = tmp_instr;
@@ -84,7 +83,6 @@ t_instruction	*copy_instructions(t_instruction *instructions)
 	return (new);
 }
 
-
 t_instruction	*add_n_instructions(t_instruction **instructions, char *line,
 size_t n)
 {
@@ -93,7 +91,8 @@ size_t n)
 	start = NULL;
 	if (n > 0)
 	{
-		if (!(start = add_instruction(instructions, line)))
+		start = add_instruction(instructions, line);
+		if (!start)
 			return (NULL);
 		n--;
 		while (n > 0)
@@ -109,15 +108,16 @@ size_t n)
 	return (start);
 }
 
-
 t_instruction	*add_instruction(t_instruction **instructions, char *line)
 {
-	t_instruction *tmp;
-	t_instruction *new;
+	t_instruction	*tmp;
+	t_instruction	*new;
 
-	if (!(new = malloc(sizeof(t_instruction))))
+	new = malloc(sizeof(t_instruction));
+	if (!new)
 		return (NULL);
-	if (!(new->line = ft_strdup(line)))
+	new->line = ft_strdup(line);
+	if (!new->line)
 	{
 		free(new);
 		return (NULL);

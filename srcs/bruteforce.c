@@ -6,13 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 11:10:46 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/06/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:16:07 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int				check_bruteforce_solution(t_state *states, t_state **result)
+int	check_bruteforce_solution(t_state *states, t_state **result)
 {
 	while (states && !(*result))
 	{
@@ -29,7 +29,7 @@ int				check_bruteforce_solution(t_state *states, t_state **result)
 	return (0);
 }
 
-t_state			*pick_bruteforce_solution(t_state *states, size_t pos[2],
+t_state	*pick_bruteforce_solution(t_state *states, size_t pos[2],
 t_stack *stack_b)
 {
 	t_state			*result;
@@ -59,22 +59,24 @@ t_stack *stack_b)
 	return (result);
 }
 
-int				bruteforce_order_a(t_program *prg)
+int	bruteforce_order_a(t_program *prg)
 {
 	size_t			pos[2];
 	t_state			*result;
 	t_state			*states;
 
 	calcul_align_b(&pos[0], &pos[1], &prg->stack_b);
-	if (!(states = new_empty_state(&prg->stack_a, NULL, prg->stack_a.max_size)))
+	states = new_empty_state(&prg->stack_a, NULL, prg->stack_a.max_size);
+	if (!states)
 		return (1);
-	if (!(result = pick_bruteforce_solution(states, pos, &prg->stack_b)))
+	result = pick_bruteforce_solution(states, pos, &prg->stack_b);
+	if (!result)
 	{
 		free_states(states);
 		return (1);
 	}
 	execute_instructions(result->instructions, &prg->stack_a, &prg->stack_b,
-prg->debug);
+		prg->debug);
 	if (!copy_and_concat_instructions(&prg->instr, result->instructions))
 	{
 		free_states(result);
@@ -83,4 +85,3 @@ prg->debug);
 	free_states(result);
 	return (0);
 }
- 

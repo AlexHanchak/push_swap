@@ -6,15 +6,13 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:22:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:38:37 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
 
 #include "push_swap.h"
 
-
-void			reverse_rotate_stack(t_stack *stack)
+void	reverse_rotate_stack(t_stack *stack)
 {
 	size_t	i;
 	int		tmp;
@@ -32,7 +30,7 @@ void			reverse_rotate_stack(t_stack *stack)
 	}
 }
 
-void			rotate_stack(t_stack *stack)
+void	rotate_stack(t_stack *stack)
 {
 	size_t	i;
 	int		tmp;
@@ -50,8 +48,7 @@ void			rotate_stack(t_stack *stack)
 	}
 }
 
-
-void			push_stack(t_stack *stack1, t_stack *stack2)
+void	push_stack(t_stack *stack1, t_stack *stack2)
 {
 	if (stack2->size > 0)
 	{
@@ -63,10 +60,9 @@ void			push_stack(t_stack *stack1, t_stack *stack2)
 	}
 }
 
-
-void			swap_stack(t_stack *stack)
+void	swap_stack(t_stack *stack)
 {
-	int tmp;
+	int	tmp;
 
 	if (stack->size > 1)
 	{

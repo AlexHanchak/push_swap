@@ -6,16 +6,15 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:31:45 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-size_t			count_instructions(t_instruction *instr)
+size_t	count_instructions(t_instruction *instr)
 {
-	size_t nb;
+	size_t	nb;
 
 	nb = 0;
 	while (instr)
@@ -26,7 +25,7 @@ size_t			count_instructions(t_instruction *instr)
 	return (nb);
 }
 
-int				pick_solution(t_program *prg, t_state *states)
+int	pick_solution(t_program *prg, t_state *states)
 {
 	t_state			*solution;
 	t_state			*tmp_state;
@@ -35,8 +34,8 @@ int				pick_solution(t_program *prg, t_state *states)
 	tmp_state = states->next;
 	while (tmp_state)
 	{
-		if (!solution || count_instructions(tmp_state->instructions) <
-count_instructions(solution->instructions))
+		if (!solution || count_instructions(tmp_state->instructions)
+			< count_instructions(solution->instructions))
 			solution = tmp_state;
 		tmp_state = tmp_state->next;
 	}
@@ -45,8 +44,9 @@ count_instructions(solution->instructions))
 	if (solution->instructions)
 	{
 		execute_instructions(solution->instructions, &prg->stack_a,
-&prg->stack_b, prg->debug);
-		if (!(prg->instr = copy_instructions(solution->instructions)))
+			&prg->stack_b, prg->debug);
+		prg->instr = copy_instructions(solution->instructions);
+		if (!prg->instr)
 		{
 			free_states(states);
 			return (1);
@@ -55,7 +55,7 @@ count_instructions(solution->instructions))
 	return (0);
 }
 
-int				realign_and_fill_a(t_program *prg)
+int	realign_and_fill_a(t_program *prg)
 {
 	t_instruction	*tmp;
 
@@ -63,9 +63,10 @@ int				realign_and_fill_a(t_program *prg)
 		return (1);
 	while (prg->stack_b.size)
 	{
-		if (prg->stack_b.array[0] > prg->stack_a.array[prg->stack_a.size - 1] ||
-(prg->stack_b.array[0] < prg->stack_a.array[0] &&
-prg->stack_a.array[0] < prg->stack_a.array[prg->stack_a.size - 1]))
+		if (prg->stack_b.array[0] > prg->stack_a.array[prg->stack_a.size - 1]
+			|| (prg->stack_b.array[0] < prg->stack_a.array[0]
+				&& prg->stack_a.array[0]
+				< prg->stack_a.array[prg->stack_a.size - 1]))
 			tmp = add_instruction(&prg->instr, "pa");
 		else
 			tmp = add_instruction(&prg->instr, "rra");
@@ -78,15 +79,16 @@ prg->stack_a.array[0] < prg->stack_a.array[prg->stack_a.size - 1]))
 	return (0);
 }
 
-int				resolve(t_program *prg)
+int	resolve(t_program *prg)
 {
 	t_state			*states;
 
-	if (!(states = new_empty_state(&prg->stack_a, &prg->stack_b,
-prg->stack_a.max_size)))
+	states = new_empty_state(&prg->stack_a, &prg->stack_b,
+			prg->stack_a.max_size);
+	if (!states)
 		return (1);
-	if (prg->stack_a.size > 5 &&
-(create_states_resolution(&states) || large_resolve(states)))
+	if (prg->stack_a.size > 5
+		&& (create_states_resolution(&states) || large_resolve(states)))
 		return (1);
 	if (pick_solution(prg, states))
 		return (1);
@@ -98,7 +100,7 @@ prg->stack_a.max_size)))
 	return (0);
 }
 
-int				main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_program			prg;
 

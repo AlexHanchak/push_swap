@@ -6,21 +6,23 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:40:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:51:41 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_state			*new_state_instruction(t_state **states, t_state *old_state,
+t_state	*new_state_instruction(t_state **states, t_state *old_state,
 char *line)
 {
 	t_state			*state;
 	t_instruction	*instr;
 
-	if (!(state = add_state(states, old_state)))
+	state = add_state(states, old_state);
+	if (!state)
 		return (NULL);
-	if (!(instr = add_instruction(&state->instructions, line)))
+	instr = add_instruction(&state->instructions, line);
+	if (!instr)
 	{
 		free_states(state);
 		return (NULL);
@@ -30,8 +32,7 @@ char *line)
 	return (state);
 }
 
-
-void			free_states(t_state *states)
+void	free_states(t_state *states)
 {
 	t_state			*tmp;
 	t_state			*next;
@@ -48,7 +49,7 @@ void			free_states(t_state *states)
 	}
 }
 
-t_state			*add_state(t_state **states, t_state *state_from)
+t_state	*add_state(t_state **states, t_state *state_from)
 {
 	t_state		*tmp;
 	t_state		*new;
@@ -60,9 +61,11 @@ t_state			*add_state(t_state **states, t_state *state_from)
 	new->instructions = NULL;
 	new->last_instr = NULL;
 	new->next = NULL;
-	if (!(new->stack_a = copy_stack(state_from->stack_a)) ||
-!(new->stack_b = copy_stack(state_from->stack_b)) || (state_from->instructions
-	&& !(new->instructions = copy_instructions(state_from->instructions))))
+	if (!(new->stack_a = copy_stack(state_from->stack_a))
+		|| !(new->stack_b = copy_stack(state_from->stack_b))
+		|| (state_from->instructions
+			&& !(new->instructions = copy_instructions
+				(state_from->instructions))))
 	{
 		free_states(new);
 		return (NULL);
@@ -77,12 +80,13 @@ t_state			*add_state(t_state **states, t_state *state_from)
 	return (new);
 }
 
-t_state			*new_empty_state(t_stack *stack_a, t_stack *stack_b,
+t_state	*new_empty_state(t_stack *stack_a, t_stack *stack_b,
 size_t max_size)
 {
 	t_state		*state;
 
-	if (!(state = malloc(sizeof(t_state))))
+	state = malloc(sizeof(t_state));
+	if (!state)
 		return (NULL);
 	if (stack_a)
 		state->stack_a = copy_stack(stack_a);
