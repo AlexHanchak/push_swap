@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:15 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:36:06 by lex              ###   ########.fr       */
+/*   Created: 2023/01/16 18:22:19 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
  
 
 #include "push_swap.h"
 
-/*
-** Shift down all elements of the stack by 1. The last one become the first one.
-*/
 
 void			reverse_rotate_stack(t_stack *stack)
 {
@@ -36,10 +32,6 @@ void			reverse_rotate_stack(t_stack *stack)
 	}
 }
 
-/*
-** Shift up all elements of the stack by 1. The first one become the last one.
-*/
-
 void			rotate_stack(t_stack *stack)
 {
 	size_t	i;
@@ -58,9 +50,6 @@ void			rotate_stack(t_stack *stack)
 	}
 }
 
-/*
-** Take the first element at the top of stack2 and put it at the top of stack1.
-*/
 
 void			push_stack(t_stack *stack1, t_stack *stack2)
 {
@@ -74,9 +63,6 @@ void			push_stack(t_stack *stack1, t_stack *stack2)
 	}
 }
 
-/*
-** Swap the first two elements at the top of the stack
-*/
 
 void			swap_stack(t_stack *stack)
 {

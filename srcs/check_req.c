@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_req.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:27 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:36:59 by lex              ###   ########.fr       */
+/*   Created: 2023/03/16 10:20:21 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/05/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
  
 
 #include "push_swap.h"
 
-/*
-** Choose that to do
-*/
 
 void			execute_instructions(t_instruction *instr, t_stack *stack_a,
 t_stack *stack_b, int debug)
@@ -88,9 +84,6 @@ t_instruction	*copy_instructions(t_instruction *instructions)
 	return (new);
 }
 
-/*
-** Add n instructions of line
-*/
 
 t_instruction	*add_n_instructions(t_instruction **instructions, char *line,
 size_t n)
@@ -116,9 +109,6 @@ size_t n)
 	return (start);
 }
 
-/*
-** Add instruction with line
-*/
 
 t_instruction	*add_instruction(t_instruction **instructions, char *line)
 {

@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   align_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:34 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:34:16 by lex              ###   ########.fr       */
+/*   Created: 2023/02/16 14:21:34 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-/*
-** Count how many movements needed to align stack_a and the position of the
-** element to align
-*/
 
 void			calcul_align_a(size_t *pos, size_t *mvt, t_stack *stack_a,
 t_stack *stack_b)
@@ -35,11 +30,6 @@ stack_a->array[*pos] < stack_a->array[*pos + 1])
 	}
 }
 
-/*
-** Count how many movements needed to align stack_b and the position of the
-** element to align
-*/
-
 void			calcul_align_b(size_t *pos, size_t *mvt, t_stack *stack_b)
 {
 	*pos = 0;
@@ -56,9 +46,6 @@ stack_b->array[*pos] > stack_b->array[*pos + 1])
 	}
 }
 
-/*
-** align stack a in order to get final solution
-*/
 
 int				align_stack_a(t_program *prg)
 {
@@ -80,9 +67,6 @@ int				align_stack_a(t_program *prg)
 	return (0);
 }
 
-/*
-** align stack b to fill stack_a
-*/
 
 int				align_stack_b(t_program *prg)
 {

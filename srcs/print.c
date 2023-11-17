@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:13 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:35:53 by lex              ###   ########.fr       */
+/*   Created: 2023/01/16 19:27:46 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
  
 
 #include "push_swap.h"
@@ -84,9 +83,7 @@ void			print_stacks(t_stack *stack_a, t_stack *stack_b)
 	max_size = stack_a->size;
 	if (stack_b->size > stack_a->size)
 		max_size = stack_b->size;
-	write(STDOUT_FILENO, _YELLOW, ft_strlen(_YELLOW));
 	write(STDOUT_FILENO, "stacks\n", 7);
-	write(STDOUT_FILENO, _END, ft_strlen(_END));
 	max_size_nbr[0] = get_max_size_nbr_stack(stack_a);
 	max_size_nbr[1] = get_max_size_nbr_stack(stack_b);
 	print_numbers_stacks(max_size, max_size_nbr, stack_a, stack_b);

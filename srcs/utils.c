@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 09:26:21 by lex               #+#    #+#             */
-/*   Updated: 2023/10/06 11:30:56 by lex              ###   ########.fr       */
+/*   Created: 2023/01/16 11:20:10 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,6 @@ void			ft_putnbr(int n)
 		write(STDOUT_FILENO, "0", 1);
 }
 
-
-// int	ft_atoi(const char *str)
-// {
-// 	int				i;
-// 	long long int	numb;
-// 	int				sign;
-
-// 	i = 0;
-// 	sign = 1;
-// 	numb = 0;
-// 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-// 		i++;
-// 	if (str[i] == '-')
-// 		sign = -1;
-// 	if (str[i] == '-' || str[i] == '+')
-// 		i++;
-// 	while (str[i] >= '0' && str[i] <= '9')
-// 	{
-// 		numb = numb * 10 + (str[i] - '0');
-// 		if (numb < 0 && sign == -1 && numb != -2147483648)
-// 			return (0);
-// 		if (numb < 0 && sign == 1)
-// 			return (-1);
-// 		i++;
-// 	}
-// 	return (numb * sign);
-// }
 
 int				ft_atoi(const char *str, int *num)
 {

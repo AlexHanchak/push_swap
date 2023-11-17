@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:20 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:37:35 by lex              ###   ########.fr       */
+/*   Created: 2023/01/16 13:28:10 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
  
 
 #include "push_swap.h"
 
-/*
-** copy a str until stop character or end of string str
-*/
 
 char				*ft_strdup_char(const char *str, char stop)
 {
@@ -35,9 +31,6 @@ char				*ft_strdup_char(const char *str, char stop)
 	return (pt);
 }
 
-/*
-** fill_array from 1 arg
-*/
 
 int					fill_stack_arg(char *arg, t_stack *stack, size_t *stack_nb)
 {
@@ -67,9 +60,6 @@ int					fill_stack_arg(char *arg, t_stack *stack, size_t *stack_nb)
 	return (0);
 }
 
-/*
-** fill_array
-*/
 
 int					fill_stack(int argc, char *argv[], t_stack *stack)
 {
@@ -89,9 +79,6 @@ int					fill_stack(int argc, char *argv[], t_stack *stack)
 	return (0);
 }
 
-/*
-** посчёт аргументов цыфр слов в аргументах
-*/
 
 size_t				count_stack_size(int argc, char *argv[])
 {
@@ -115,9 +102,6 @@ size_t				count_stack_size(int argc, char *argv[])
 	return (size);
 }
 
-/*
-** Allocate arrays of stacks and initiate stack_a with args
-*/
 
 int					init_stacks(int argc, char *argv[],
 t_stack *stack_a, t_stack *stack_b)

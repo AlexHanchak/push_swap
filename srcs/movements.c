@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lex <lex@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 16:33:17 by lex               #+#    #+#             */
-/*   Updated: 2023/10/05 16:36:26 by lex              ###   ########.fr       */
+/*   Created: 2023/01/16 21:21:19 by ohanchak          #+#    #+#             */
+/*   Updated: 2023/04/15 16:03:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
  
 #include "push_swap.h"
 
-/*
-** Return 1 if pb is possible to fit with all values in stack_b
-** otherwise return 0
-*/
 
 int				can_pb(t_stack *stack_a, t_stack *stack_b)
 {
@@ -39,10 +34,6 @@ stack_b->array[stack_b->size - 1] < stack_b->array[0])
 	return (0);
 }
 
-/*
-** Return the closest pos of a number inferior of 'nb', return the position of
-** the next number to the smallest in stack
-*/
 
 size_t			closer_pos_to_inf(int nb, t_stack *stack)
 {
@@ -71,10 +62,6 @@ size_t			closer_pos_to_inf(int nb, t_stack *stack)
 	return (pos);
 }
 
-/*
-** Calcul if a number on range from the beginning of minimal_movement has less
-** movement needed to store in stack_b
-*/
 
 size_t			less_mvt_at_begin(size_t minimal_mvt, size_t *min_mvt,
 t_stack *stack_a, t_stack *stack_b)
@@ -103,11 +90,6 @@ t_stack *stack_a, t_stack *stack_b)
 	}
 	return (min);
 }
-
-/*
-** Calcul if a number on range from the end of minimal_movement has less
-** movement needed to store in stack_b
-*/
 
 size_t			less_mvt_at_end(size_t minimal_mvt, size_t *min_mvt,
 t_stack *stack_a, t_stack *stack_b)
