@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:40:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:51:41 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:34:50 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,26 @@ size_t max_size)
 		return (NULL);
 	if (stack_a)
 		state->stack_a = copy_stack(stack_a);
-	else if (!(state->stack_a = new_empty_stack(max_size)))
+	else
 	{
-		free(state);
-		return (NULL);
+		state->stack_a = new_empty_stack(max_size);
+		if (stack_a == NULL)
+		{
+			free(state);
+			return (NULL);
+		}
 	}
 	if (stack_b)
 		state->stack_b = copy_stack(stack_b);
-	else if (!(state->stack_b = new_empty_stack(max_size)))
+	else
 	{
-		free_stack(state->stack_a);
-		free(state);
-		return (NULL);
+		state->stack_b = new_empty_stack(max_size);
+		if (stack_b == NULL)
+		{
+			free_stack(state->stack_a);
+			free(state);
+			return (NULL);
+		}
 	}
 	state->instructions = NULL;
 	state->last_instr = NULL;

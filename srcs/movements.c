@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:21:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:28:08 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:03:14 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_stack *stack_a, t_stack *stack_b)
 }
 
 size_t	less_mvt_at_end(size_t minimal_mvt, size_t *min_mvt,
-t_stack *stack_a, t_stack *stack_b)
+	t_stack *stack_a, t_stack *stack_b)
 {
 	size_t		i;
 	size_t		m;
