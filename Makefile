@@ -6,7 +6,7 @@
 #    By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 15:44:28 by ohanchak          #+#    #+#              #
-#    Updated: 2023/10/05 16:48:30 by ohanchak         ###   ########.fr        #
+#    Updated: 2023/11/27 17:46:36 by ohanchak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ DIR_SRCS	=	./srcs/
 DIR_OBJS	=	./compiled_srcs/
 
 SRC			=	push_swap.c \
+				push_swap_add.c \
 				init_stacks.c \
 				stacks.c \
 				align_stacks.c \
@@ -31,6 +32,7 @@ SRC			=	push_swap.c \
 				check_req.c \
 				movements.c \
 				states.c \
+				states_add.c \
 				resolution.c \
 				bruteforce.c \
 				b_operations.c \

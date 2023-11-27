@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:20:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:03:20 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:46:06 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ void				free_states(t_state *states);
 t_state				*add_state(t_state **states, t_state *state_from);
 t_state				*new_empty_state(t_stack *stack_a, t_stack *stack_b,
 						size_t max_size);
+t_state				*new_empty_state(t_stack *stack_a, t_stack *stack_b,
+						size_t max_size);
 
+int					pick_solution(t_program *prg, t_state *states);
 int					create_states_resolution(t_state	**states);
 t_instruction		*rotate_a(t_state *stt, size_t min[2], size_t min_mvt[2]);
 t_instruction		*rotate(t_state *stt);

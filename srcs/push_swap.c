@@ -6,54 +6,11 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/18 16:51:18 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:47:21 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-size_t	count_instructions(t_instruction *instr)
-{
-	size_t	nb;
-
-	nb = 0;
-	while (instr)
-	{
-		nb++;
-		instr = instr->next;
-	}
-	return (nb);
-}
-
-int	pick_solution(t_program *prg, t_state *states)
-{
-	t_state			*solution;
-	t_state			*tmp_state;
-
-	solution = NULL;
-	tmp_state = states->next;
-	while (tmp_state)
-	{
-		if (!solution || count_instructions(tmp_state->instructions)
-			< count_instructions(solution->instructions))
-			solution = tmp_state;
-		tmp_state = tmp_state->next;
-	}
-	if (!solution)
-		solution = states;
-	if (solution->instructions)
-	{
-		execute_instructions(solution->instructions, &prg->stack_a,
-			&prg->stack_b, prg->debug);
-		prg->instr = copy_instructions(solution->instructions);
-		if (!prg->instr)
-		{
-			free_states(states);
-			return (1);
-		}
-	}
-	return (0);
-}
 
 int	realign_and_fill_a(t_program *prg)
 {
