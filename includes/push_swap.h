@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:20:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/27 17:46:06 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:08:40 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_program
 	int				debug;
 }					t_program;
 
+void				sort_five_numbers(int arr[]);
 void				reverse_rotate_stack(t_stack *stack);
 void				rotate_stack(t_stack *stack);
 void				push_stack(t_stack *stack1, t_stack *stack2);

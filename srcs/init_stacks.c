@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:28:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:26:13 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:33:14 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,10 @@ int	fill_stack(int argc, char *argv[], t_stack *stack)
 
 size_t	count_stack_size(int argc, char *argv[])
 {
-	size_t	i;
-	size_t	j;
-	size_t	size;
+	t_program	prg;
+	size_t		i;
+	size_t		j;
+	size_t		size;
 
 	size = 0;
 	i = 0;
@@ -94,6 +95,10 @@ size_t	count_stack_size(int argc, char *argv[])
 			j++;
 		}
 		i++;
+	}
+	if (size == 4)
+	{
+		process_arguments(argc, argv, &prg);
 	}
 	return (size);
 }

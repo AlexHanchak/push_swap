@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:21:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/27 18:00:48 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:15:04 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,7 @@ size_t	less_mvt_at_end(size_t minimal_mvt, size_t *min_mvt,
 	{
 		t[0] = closer_pos_to_inf(stack_a->array[i], stack_b);
 		t[1] = stack_b->size - t[0];
-		if ((t[0] > stack_b->size / 2 && t[1] >= (stack_a->size - i)
-				&& t[1] < m)
+		if ((*t > stack_b->size / 2 && t[1] >= (stack_a->size - i) && t[1] < m)
 			|| (t[0] > stack_b->size / 2 && t[1] < (stack_a->size - i)
 				&& (stack_a->size - i) < m) || ((stack_a->size - i) + t[0] < m))
 			*min_mvt = t[0];
