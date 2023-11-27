@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:40:10 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:51:41 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:34:50 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,31 +80,76 @@ t_state	*add_state(t_state **states, t_state *state_from)
 	return (new);
 }
 
-t_state	*new_empty_state(t_stack *stack_a, t_stack *stack_b,
-size_t max_size)
-{
-	t_state		*state;
+// t_state	*new_empty_state(t_stack *stack_a, t_stack *stack_b,
+// size_t max_size)
+// {
+// 	t_state		*state;
 
-	state = malloc(sizeof(t_state));
-	if (!state)
-		return (NULL);
-	if (stack_a)
-		state->stack_a = copy_stack(stack_a);
-	else if (!(state->stack_a = new_empty_stack(max_size)))
-	{
-		free(state);
-		return (NULL);
-	}
-	if (stack_b)
-		state->stack_b = copy_stack(stack_b);
-	else if (!(state->stack_b = new_empty_stack(max_size)))
-	{
-		free_stack(state->stack_a);
-		free(state);
-		return (NULL);
-	}
-	state->instructions = NULL;
-	state->last_instr = NULL;
-	state->next = NULL;
-	return (state);
+// 	state = malloc(sizeof(t_state));
+// 	if (!state)
+// 		return (NULL);
+// 	if (stack_a)
+// 		state->stack_a = copy_stack(stack_a);
+// 	else
+// 	{
+// 		state->stack_a = new_empty_stack(max_size);
+// 		if (stack_a == NULL)
+// 		{
+// 			free(state);
+// 			return (NULL);
+// 		}
+// 	}
+// 	if (stack_b)
+// 		state->stack_b = copy_stack(stack_b);
+// 	else if (!(state->stack_b = new_empty_stack(max_size)))
+// 		{
+// 			free_stack(state->stack_a);
+// 			free(state);
+// 			return (NULL);
+// 		}
+// 	state->instructions = NULL;
+// 	state->last_instr = NULL;
+// 	state->next = NULL;
+// 	return (state);
+// }
+
+t_state *create_state_with_stack(t_stack *stack, size_t max_size) {
+    t_state *state = malloc(sizeof(t_state));
+    if (!state)
+        return NULL;
+
+    state->instructions = NULL;
+    state->last_instr = NULL;
+    state->next = NULL;
+
+    if (stack)
+        state->stack_a = copy_stack(stack);
+    else {
+        state->stack_a = new_empty_stack(max_size);
+        if (!state->stack_a) {
+            free(state);
+            return NULL;
+        }
+    }
+
+    return state;
+}
+
+t_state *new_empty_state(t_stack *stack_a, t_stack *stack_b, size_t max_size) {
+    t_state *state = create_state_with_stack(stack_a, max_size);
+    if (!state)
+        return NULL;
+
+    if (stack_b)
+        state->stack_b = copy_stack(stack_b);
+    else {
+        state->stack_b = new_empty_stack(max_size);
+        if (!state->stack_b) {
+            free_stack(state->stack_a);
+            free(state);
+            return NULL;
+        }
+    }
+
+    return state;
 }
