@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 12:03:19 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/27 20:28:13 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:59:45 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	resolve(t_program *prg)
 			prg->stack_a.max_size);
 	if (!states)
 		return (1);
-	if (prg->stack_a.size > 5
+	if (prg->stack_a.size > 1
 		&& (create_states_resolution(&states) || large_resolve(states)))
 		return (1);
 	if (pick_solution(prg, states))
@@ -55,33 +55,6 @@ int	resolve(t_program *prg)
 	if (realign_and_fill_a(prg))
 		return (1);
 	return (0);
-}
-
-int	process_arguments(int argc, char *argv[], t_program *prg)
-{
-	if (--argc != 5 || (!ft_strcmp(argv[1], "-v") && argc == 1))
-		return (0);
-	prg->debug = 0;
-	if (!ft_strcmp(argv[1], "-v"))
-	{
-		prg->debug = 1;
-		if (init_stacks(--argc, &argv[2], &prg->stack_a, &prg->stack_b))
-			return (0);
-	}
-	else if (init_stacks(argc, &argv[1], &prg->stack_a, &prg->stack_b))
-		return (0);
-	if (prg->debug)
-		print_stacks(&prg->stack_a, &prg->stack_b);
-	prg->instr = NULL;
-	if (is_stack_ordered(&prg->stack_a, ASC) && resolve(prg))
-	{
-		free_instructions(prg->instr);
-		write(STDERR_FILENO, "Error\n", 6);
-		return (0);
-	}
-	print_instructions(prg->instr);
-	free_prg(prg);
-	return (1);
 }
 
 int	main(int argc, char *argv[])

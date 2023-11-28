@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:21:34 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/27 20:04:13 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:40:39 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ t_stack *stack_b)
 		else
 			*mvt = *pos + 1;
 	}
-	if (stack_a->size >= 5)
-	{
-		sort_five_numbers(stack_a->array);
-	}
 }
 
 void	calcul_align_b(size_t *pos, size_t *mvt, t_stack *stack_b)
@@ -46,10 +42,6 @@ void	calcul_align_b(size_t *pos, size_t *mvt, t_stack *stack_b)
 			*mvt = stack_b->size - (*pos + 1);
 		else
 			*mvt = *pos + 1;
-	}
-	if (stack_b->size >= 5)
-	{
-		sort_five_numbers(stack_b->array);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ohanchak <ohanchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:20:21 by ohanchak          #+#    #+#             */
-/*   Updated: 2023/11/17 18:18:22 by ohanchak         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:09:10 by ohanchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ t_stack *stack_b, int debug)
 			push_stack(stack_a, stack_b);
 		if (!ft_strcmp(instr->line, "pb"))
 			push_stack(stack_b, stack_a);
-		if (!ft_strcmp(instr->line, "ra") || !ft_strcmp(instr->line, "rr"))
-			rotate_stack(stack_a);
 		if (!ft_strcmp(instr->line, "rb") || !ft_strcmp(instr->line, "rr"))
 			rotate_stack(stack_b);
+		if (!ft_strcmp(instr->line, "ra") || !ft_strcmp(instr->line, "rr"))
+			rotate_stack(stack_a);
 		if (!ft_strcmp(instr->line, "rra") || !ft_strcmp(instr->line, "rrr"))
 			reverse_rotate_stack(stack_a);
 		if (!ft_strcmp(instr->line, "rrb") || !ft_strcmp(instr->line, "rrr"))
